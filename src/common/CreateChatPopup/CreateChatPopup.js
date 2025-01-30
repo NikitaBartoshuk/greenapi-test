@@ -1,7 +1,6 @@
 import React, {useState, useContext} from 'react';
 import './createchatpopup.css'
 import { IoMdExit } from "react-icons/io";
-import axios from "axios";
 import { AppContext } from '../../pages/MainPage/MainPage';
 
 const CreateChatPopup = ({ onClick }) => {
@@ -14,9 +13,9 @@ const CreateChatPopup = ({ onClick }) => {
 
     const createChat = () => {
         if (input.trim()) {
-            const chatId = input + '@c.us'; // Формируем chatId
-            addChat(chatId); // Передаем его в контекст
-            onClick(); // Закрываем попап
+            const chatId = input + '@c.us';
+            addChat(chatId);
+            onClick();
         }
     };
 

@@ -3,28 +3,26 @@ import React, { useState, useContext } from 'react';
 import chatPhoto from '../../../assets/chat-photo.jpg';
 import { CiSearch } from "react-icons/ci";
 import { AppContext } from '../MainPage';
+import { AuthContext} from "../../../authContext/AuthContext";
 import axios from "axios";
 
 const OpenChatSection = ({ activeChat }) => {
     const [input, setInput] = useState('');
-    const [sentMessages, setSentMessages] = useState([]); // Храним отправленные сообщения
-    const { notifications } = useContext(AppContext); // Берем уведомления из контекста
-
-    // Фильтруем полученные сообщения по activeChat
+    const [sentMessages, setSentMessages] = useState([]);
+    const { notifications } = useContext(AppContext);
+    const {idInstance, apiTokenInstance} = useContext(AuthContext)
     const receivedMessages = notifications
         .filter(el => el.body?.senderData?.chatId === activeChat)
         .map(el => ({
             id: el.body.idMessage,
             text: el.body?.messageData?.textMessageData?.textMessage,
-            fromMe: false, // Полученные сообщения
-            timestamp: el.body.timestamp ? new Date(el.body.timestamp * 1000).getTime() : Date.now(), // Конвертируем серверный timestamp
+            fromMe: false,
+            timestamp: el.body.timestamp ? new Date(el.body.timestamp * 1000).getTime() : Date.now(),
         }))
-        .filter(el => el.text); // Убираем пустые сообщения
+        .filter(el => el.text);
 
-    // Фильтруем отправленные сообщения по activeChat
     const filteredSentMessages = sentMessages.filter(msg => msg.chatId === activeChat);
 
-    // Объединяем все сообщения и сортируем их по времени
     const messages = [...receivedMessages, ...filteredSentMessages].sort((a, b) => a.timestamp - b.timestamp);
 
     const handleInput = (event) => {
@@ -35,19 +33,18 @@ const OpenChatSection = ({ activeChat }) => {
         if (!activeChat || !input.trim()) return;
 
         const newMessage = {
-            id: Date.now(), // Временный ID
+            id: Date.now(),
             text: input,
-            fromMe: true, // Исходящее сообщение
-            timestamp: Date.now(), // Локальное время отправки
+            fromMe: true,
+            timestamp: Date.now(),
             chatId: activeChat,
         };
 
-        // Добавляем сообщение в состояние сразу
         setSentMessages(prev => [...prev, newMessage]);
 
         try {
             await axios.post(
-                'https://7105.api.greenapi.com/waInstance7105182198/sendMessage/a6a61c43c7e7444badc0641f69ffe2e13085e00605cd47bdbf',
+                `https://7105.api.greenapi.com/waInstance${idInstance}/sendMessage/${apiTokenInstance}`,
                 { message: input, chatId: activeChat }
             );
         } catch (error) {
@@ -88,3 +85,4 @@ const OpenChatSection = ({ activeChat }) => {
 };
 
 export default OpenChatSection;
+

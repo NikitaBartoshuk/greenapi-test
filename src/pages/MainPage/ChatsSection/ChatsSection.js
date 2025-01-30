@@ -24,7 +24,7 @@ const ChatsSection = () => {
             <article className='chats-list-container'>
                 <ul className='chats-list'>
                     {[...chats, ...notifications.map(el => el.body?.senderData?.chatId)]
-                        .filter(Boolean) // Убираем пустые значения
+                        .filter(Boolean)
                         .filter(chatId => {
                             if (addedChats.has(chatId)) return false;
                             addedChats.add(chatId);
@@ -33,7 +33,7 @@ const ChatsSection = () => {
                         .map(chatId => (
                             <ChatItem
                                 key={chatId}
-                                chatName={chatId} // Можно заменить на нормальное имя
+                                chatName={chatId}
                                 onClick={() => setActiveChat(chatId)}
                             />
                         ))}

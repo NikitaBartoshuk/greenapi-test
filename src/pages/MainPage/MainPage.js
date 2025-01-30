@@ -1,30 +1,30 @@
 import './mainpage.css'
-import React, {createContext, useState, useEffect} from 'react';
+import React, {createContext, useState, useEffect, useContext} from 'react';
 import NavSection from "./NavSection/NavSection";
 import ChatsSection from "./ChatsSection/ChatsSection";
 import OpenChatSection from "./OpenChatSection/OpenChatSection";
 import axios from 'axios';
-import CreateChatPopup from "../../common/CreateChatPopup/CreateChatPopup";
+import {AuthContext} from "../../authContext/AuthContext";
 
-// Создаем контекст для уведомлений
+
 export const AppContext = createContext();
 
 const MainPage = () => {
-    const [notifications, setNotifications] = useState([]); // Храним уведомления
+    const [notifications, setNotifications] = useState([]);
     const [activeChat, setActiveChat] = useState(null);
-    const [chats, setChats] = useState(new Set()); // Уникальные чаты
+    const [chats, setChats] = useState(new Set());
+    const {idInstance, apiTokenInstance} = useContext(AuthContext)
 
     const addChat = (chatId) => {
-        setChats(prev => new Set(prev.add(chatId))); // Добавляем новый чат
-        setActiveChat(chatId); // Сразу открываем его
+        setChats(prev => new Set(prev.add(chatId)));
+        setActiveChat(chatId);
     };
 
-    // Функция для получения всех уведомлений без задержек
     const fetchAndDeleteNotifications = async () => {
         try {
-            while (true) { // Запускаем бесконечный цикл
+            while (true) {
                 const response = await axios.get(
-                    'https://7105.api.greenapi.com/waInstance7105182198/receiveNotification/a6a61c43c7e7444badc0641f69ffe2e13085e00605cd47bdbf?receiveTimeout=5',
+                    `https://7105.api.greenapi.com/waInstance${idInstance}/receiveNotification/${apiTokenInstance}?receiveTimeout=5`,
                     {
                         headers: {
                             'Cache-Control': 'no-cache',
@@ -35,12 +35,11 @@ const MainPage = () => {
                 );
 
                 const notification = response.data;
-                if (!notification) break; // Если нет уведомлений, выходим из цикла
+                if (!notification) break;
 
-                setNotifications((prev) => [...prev, notification]); // Записываем в контекст
+                setNotifications((prev) => [...prev, notification]);
                 console.log('Получено уведомление:', notification);
 
-                // Удаляем уведомление с сервера
                 await deleteNotification(notification.receiptId);
             }
         } catch (error) {
@@ -48,11 +47,10 @@ const MainPage = () => {
         }
     };
 
-    // Функция для удаления уведомления по receiptId
     const deleteNotification = async (receiptId) => {
         try {
             await axios.delete(
-                `https://7105.api.greenapi.com/waInstance7105182198/deleteNotification/a6a61c43c7e7444badc0641f69ffe2e13085e00605cd47bdbf/${receiptId}`
+                `https://7105.api.greenapi.com/waInstance${idInstance}/deleteNotification/${apiTokenInstance}/${receiptId}`
             );
             console.log(`Удалено уведомление с ID: ${receiptId}`);
         } catch (error) {
@@ -61,13 +59,13 @@ const MainPage = () => {
     };
 
     useEffect(() => {
-        fetchAndDeleteNotifications(); // Получаем все уведомления при рендере
+        fetchAndDeleteNotifications();
 
         const intervalId = setInterval(() => {
-            fetchAndDeleteNotifications(); // Проверяем новые уведомления каждые 8 секунд
+            fetchAndDeleteNotifications();
         }, 8000);
 
-        return () => clearInterval(intervalId); // Очищаем интервал при размонтировании
+        return () => clearInterval(intervalId);
     }, []);
 
     return (
