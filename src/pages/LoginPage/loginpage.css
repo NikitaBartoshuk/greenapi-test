@@ -1,0 +1,109 @@
+/* Основной контейнер формы */
+.login-form-container {
+    width: 600px;
+    max-width: 100%; /* Сделаем форму адаптивной */
+    min-height: 300px; /* Делаем высоту адаптивной */
+    max-height: 80vh;  /* Ограничиваем высоту, чтобы форма не занимала весь экран */
+    margin: 0 auto; /* Центрируем по горизонтали */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем по вертикали */
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 0 1rem 0 #444;
+    padding: 20px; /* Добавляем внутренние отступы */
+    box-sizing: border-box; /* Учитываем отступы в ширине и высоте */
+    position: absolute; /* Позволяет центровать форму относительно родительского контейнера */
+    top: 50%; /* Выравниваем по вертикали */
+    left: 50%; /* Выравниваем по горизонтали */
+    transform: translate(-50%, -50%); /* Смещаем форму на 50% ширины и высоты */
+}
+
+/* Заголовок формы */
+.login-form-container h1 {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-size: 2em;
+    color: #00A884;
+    margin-bottom: 20px; /* Добавляем отступ снизу */
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Ввод данных */
+.login-form-container input {
+    padding: 10px;
+    width: 100%; /* Сделаем поле ввода на всю ширину */
+    max-width: 350px; /* Ограничим максимальную ширину */
+    margin: 10px 0; /* Отступы между полями */
+    border: 1px solid grey;
+    border-radius: 15px;
+    font-size: 1rem; /* Увеличим шрифт для удобства */
+}
+
+/* Кнопка */
+.login-form-container button {
+    background-color: #00A884;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem; /* Увеличим шрифт кнопки */
+    margin-top: 20px; /* Добавляем отступ сверху */
+}
+
+/* Ховер-эффект на кнопку */
+.login-form-container button:hover {
+    background-color: #05c69a;
+}
+
+/* Сброс стилей для элементов */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
