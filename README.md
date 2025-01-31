@@ -31,6 +31,9 @@ The queue of incoming messages is checked every 8 seconds.
 
 ![image](https://github.com/user-attachments/assets/1871c39e-8e0d-419f-8883-143decf11fb0)
 
+To start the app, clone it to your computer, use `npm install` to download packages, then use `npm start` to start the app.
+
+
 
 
 
