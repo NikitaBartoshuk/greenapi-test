@@ -4,6 +4,9 @@
 
 
 On the start page you need to enter idInstance and apiTokenInstance.
+
+![image](https://github.com/user-attachments/assets/3451c122-9a47-44b0-8490-dbf8759a0aa9)
+
 After entering, you are taken to the main page.
 
 ![image](https://github.com/user-attachments/assets/833580aa-ebb9-41a0-978f-6ea692d833c3)
