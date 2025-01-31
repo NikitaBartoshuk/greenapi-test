@@ -1,46 +1,42 @@
-/* Основной контейнер формы */
 .login-form-container {
     width: 600px;
-    max-width: 100%; /* Сделаем форму адаптивной */
-    min-height: 300px; /* Делаем высоту адаптивной */
-    max-height: 80vh;  /* Ограничиваем высоту, чтобы форма не занимала весь экран */
-    margin: 0 auto; /* Центрируем по горизонтали */
+    max-width: 100%;
+    min-height: 300px;
+    max-height: 80vh;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Центрируем по вертикали */
+    justify-content: center;
     align-items: center;
     border-radius: 15px;
     box-shadow: 0 0 1rem 0 #444;
-    padding: 20px; /* Добавляем внутренние отступы */
-    box-sizing: border-box; /* Учитываем отступы в ширине и высоте */
-    position: absolute; /* Позволяет центровать форму относительно родительского контейнера */
-    top: 50%; /* Выравниваем по вертикали */
-    left: 50%; /* Выравниваем по горизонтали */
-    transform: translate(-50%, -50%); /* Смещаем форму на 50% ширины и высоты */
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Заголовок формы */
 .login-form-container h1 {
     font-family: "Poppins", serif;
     font-weight: 700;
     font-size: 2em;
     color: #00A884;
-    margin-bottom: 20px; /* Добавляем отступ снизу */
-    text-align: center; /* Выравнивание по центру */
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-/* Ввод данных */
 .login-form-container input {
     padding: 10px;
-    width: 100%; /* Сделаем поле ввода на всю ширину */
-    max-width: 350px; /* Ограничим максимальную ширину */
-    margin: 10px 0; /* Отступы между полями */
+    width: 100%;
+    max-width: 350px;
+    margin: 10px 0;
     border: 1px solid grey;
     border-radius: 15px;
-    font-size: 1rem; /* Увеличим шрифт для удобства */
+    font-size: 1rem;
 }
 
-/* Кнопка */
 .login-form-container button {
     background-color: #00A884;
     border: none;
@@ -48,16 +44,14 @@
     border-radius: 15px;
     cursor: pointer;
     color: white;
-    font-size: 1rem; /* Увеличим шрифт кнопки */
-    margin-top: 20px; /* Добавляем отступ сверху */
+    font-size: 1rem;
+    margin-top: 20px;
 }
 
-/* Ховер-эффект на кнопку */
 .login-form-container button:hover {
     background-color: #05c69a;
 }
 
-/* Сброс стилей для элементов */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -79,7 +73,6 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;

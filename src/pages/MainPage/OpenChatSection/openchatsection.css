@@ -88,14 +88,12 @@
     display: inline-block;
 }
 
-/* Входящие сообщения (серый фон, слева) */
 .message-item.incoming {
     background: #3a3b3c;
     align-self: flex-start;
     border-bottom-left-radius: 4px;
 }
 
-/* Исходящие сообщения (зеленый фон, справа) */
 .message-item.outgoing {
     background: #00a884;
     align-self: flex-end;

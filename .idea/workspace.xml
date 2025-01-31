@@ -10,15 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e588605e-855f-4d81-b355-a6d15ed4c998" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/authContext/AuthContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/authContext/AuthContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/CreateChatPopup/CreateChatPopup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/CreateChatPopup/CreateChatPopup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/ChatsSection/ChatsSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/ChatsSection/ChatsSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/MainPage/OpenChatSection/OpenChatSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/MainPage/OpenChatSection/OpenChatSection.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="e588605e-855f-4d81-b355-a6d15ed4c998" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +55,7 @@
       <updated>1738142101113</updated>
       <workItem from="1738142102414" duration="22467000" />
       <workItem from="1738248019716" duration="11390000" />
-      <workItem from="1738277395874" duration="4126000" />
+      <workItem from="1738277395874" duration="4792000" />
     </task>
     <servers />
   </component>
