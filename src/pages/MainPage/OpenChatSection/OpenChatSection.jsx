@@ -1,7 +1,7 @@
 import './openchatsection.css';
 import React, { useState, useContext } from 'react';
 import chatPhoto from '../../../assets/chat-photo.jpg';
-import { CiSearch } from "react-icons/ci";
+import { FiSend } from "react-icons/fi";
 import { AppContext } from '../MainPage';
 import { AuthContext} from "../../../authContext/AuthContext";
 import axios from "axios";
@@ -48,7 +48,7 @@ const OpenChatSection = ({ activeChat }) => {
                 { message: input, chatId: activeChat }
             );
         } catch (error) {
-            console.error("Ошибка при отправке сообщения:", error);
+            console.error("Error while sending message:", error);
         }
 
         setInput('');
@@ -74,7 +74,7 @@ const OpenChatSection = ({ activeChat }) => {
                     </section>
                     <section className='open-chat-input-container'>
                         <input type="text" placeholder='Type a message' value={input} onChange={handleInput} />
-                        <CiSearch className='nav-icon' onClick={sendMessage} />
+                        <FiSend className='nav-icon' onClick={sendMessage} />
                     </section>
                 </>
             ) : (

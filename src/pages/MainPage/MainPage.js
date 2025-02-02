@@ -38,12 +38,12 @@ const MainPage = () => {
                 if (!notification) break;
 
                 setNotifications((prev) => [...prev, notification]);
-                console.log('Получено уведомление:', notification);
+                console.log('Notification receaved:', notification);
 
                 await deleteNotification(notification.receiptId);
             }
         } catch (error) {
-            console.error('Ошибка при получении уведомлений:', error);
+            console.error('Error while receaving notification:', error);
         }
     };
 
@@ -52,9 +52,9 @@ const MainPage = () => {
             await axios.delete(
                 `https://7105.api.greenapi.com/waInstance${idInstance}/deleteNotification/${apiTokenInstance}/${receiptId}`
             );
-            console.log(`Удалено уведомление с ID: ${receiptId}`);
+            console.log(`Notification with ID deleted: ${receiptId}`);
         } catch (error) {
-            console.error(`Ошибка при удалении уведомления ${receiptId}:`, error);
+            console.error(`Error while deleting notification ${receiptId}:`, error);
         }
     };
 

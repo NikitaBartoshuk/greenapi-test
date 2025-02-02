@@ -6,7 +6,7 @@ import { AuthContext } from '../../authContext/AuthContext';
 const LoginPage = () => {
     const [idInstance, setIdInstance] = useState('');
     const [apiTokenInstance, setApiTokenInstance] = useState('');
-    const { setAuthData, idInstance: storedIdInstance, apiTokenInstance: storedApiTokenInstance } = useContext(AuthContext); // Используем AuthContext для сохранения и получения данных
+    const { setAuthData, idInstance: storedIdInstance, apiTokenInstance: storedApiTokenInstance } = useContext(AuthContext);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const LoginPage = () => {
                 idInstance: storedIdInstance,
                 apiTokenInstance: storedApiTokenInstance
             });
-            console.log('Данные из AuthContext:', contextData);
+            console.log('Data from AuthContext:', contextData);
         }
     }, [storedIdInstance, storedApiTokenInstance]);
 
@@ -23,7 +23,7 @@ const LoginPage = () => {
         event.preventDefault();
 
         if (!idInstance || !apiTokenInstance) {
-            console.error('idInstance или apiTokenInstance не установлены');
+            console.error('idInstance or apiTokenInstance are unset');
             alert('Please fill in both fields');
             return;
         }
@@ -38,13 +38,13 @@ const LoginPage = () => {
             <h1>Enter your credentials</h1>
             <input
                 type="text"
-                placeholder="Введите IdInstance"
+                placeholder="Enter IdInstance"
                 value={idInstance}
                 onChange={(e) => setIdInstance(e.target.value)}
             />
             <input
                 type="text"
-                placeholder="Введите apiTokenInstance"
+                placeholder="Enter apiTokenInstance"
                 value={apiTokenInstance}
                 onChange={(e) => setApiTokenInstance(e.target.value)}
             />
