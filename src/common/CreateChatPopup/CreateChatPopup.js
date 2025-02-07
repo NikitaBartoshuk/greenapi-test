@@ -22,7 +22,7 @@ const CreateChatPopup = ({ onClick }) => {
     return (
         <section className='create-chat-popup-container'>
             <IoMdExit className='nav-icon exit-popup-icon' onClick={onClick} />
-            <h2>Enter phone number</h2>
+            <h2>Enter phone number (no symbols or whitespaces)</h2>
             <input type="text" placeholder='Enter phone number' value={input} onChange={handleInputChange} />
             <button onClick={createChat}>Create</button>
         </section>
